@@ -1,0 +1,26 @@
+name: primary actions
+
+on:
+    push:
+        branches: ["*"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Corrigido de 'ubuntu-lastest' para 'ubuntu-latest'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3  # Atualizado para a versão mais recente
+        with:
+          node-version: '20'
+          
+      - name: Install dependencies
+        run: npm ci  # Adicionei um passo para instalar dependências
+
+      - name: build applciation
+        run: npm run build
+            
+   
+   
